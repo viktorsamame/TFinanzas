@@ -29,9 +29,17 @@ loginForm.addEventListener('submit', (e) =>{
      signInWithEmailAndPassword(auth, email, password)
      .then((userCredential) => {
          console.log('login')
-         window.location.replace("rxh.html");
+         window.location.replace("menu.html");
          // clear the form
          signUpForm.reset();
      });
  
 })
+
+auth.onAuthStateChanged((user) => {
+  if (user) {
+    console.log("signin");
+  } else {
+    console.log("signout");
+  }
+});
