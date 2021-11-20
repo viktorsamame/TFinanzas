@@ -229,5 +229,19 @@ p {
 }
 
 .btnAgregar {
-  background-color: crimson;
+    /*opacity: 0.6;
+    cursor: not-allowed;*/
+    background-color: crimson;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 8px;
+}
+
+.btnAgregar:hover{
+  color: white;
 }
