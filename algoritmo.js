@@ -15,9 +15,7 @@ const add = document.querySelector('#add')
 
 add.addEventListener('click', e =>{
 
-  signOut(auth).then(() => {
-      window.location.replace("rxh.html");
-  })
+    window.location.replace("rxh.html");
 })
 
 //Recibos
