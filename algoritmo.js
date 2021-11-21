@@ -30,6 +30,15 @@ const setupDocs = data =>{
         <li class = "list-group-item list-group-item-action">
           <h5> (TCEA) Tasa de Coste Efectiva Anual: ${recibo.TCEA} </h5>
           <p> (ND) Número de dias transcurridos: ${recibo.ND} <p>
+          <p> (TE) Tasa Efectiva: ${recibo.tasaEfectivaPeriodo} <p>
+          <p> (d) Tasa Descontada: ${recibo.tasaDescontada} <p>
+          <p> (D) Descuento: ${recibo.descuento} <p>
+          <p> (Rt) Retención: ${recibo.retencion} <p>
+          <p> (CI) Costes Iniciales Totales: ${recibo.costesIniciales} <p>
+          <p> (VNet) Valor Neto: ${recibo.valorNeto} <p>
+          <p> (VR) Valor Total a Recibir: ${recibo.valorRecibido} <p>
+          <p> (CF) Costes Finales Totales: ${recibo.costesFinales} <p>
+          <p> (VE) Valor Total a Entregar: ${recibo.valorEntregado} <p>
         </li>
       `;
       html += li;
