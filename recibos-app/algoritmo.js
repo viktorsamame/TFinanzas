@@ -7,7 +7,7 @@ const logout = document.querySelector('#logout')
 logout.addEventListener('click', e =>{
 
     signOut(auth).then(() => {
-        window.location.replace("index.html");
+        window.location.replace("login.html");
     })
 })
 

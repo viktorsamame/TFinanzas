@@ -6,62 +6,235 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <script src="https://kit.fontawesome.com/989889714c.js" crossorigin="anonymous"></script>
-    <title>Recibo por Honorarios</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@200&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="styles.css">
-    <script type="module" src="/log-in.js"></script>
+    <title>Recibo por Honorarios</title>
+
+    <link rel="icon" href="Images/pila-de-dinero.png">
   </head>
-  <body>
+  <body data-spy="scroll" data-target='#main-navbar'>
 
-    <!--LOGIN INICIO-->
-    <div class="grid mt-5">
+    <header class="m-5 mb-5">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light p-3 fixed-top" id="main-navbar">
+            <div class="container-fluid">
+                <!--Logo-->
+              <a class="navbar-brand" href="#"><img style="width: 36px; height: 36px;" src="Images/pila-de-dinero.png" alt=""></a>
+    
+              <!--Boton Collapse-->
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+    
+              <!--Boton Collapse-->
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-auto">
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#episodios">Tutoriales</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#nosotros">¿Como emitir rxh?</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#entrevistas">Blog</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#topicos">Tópicos</a>
+                  </li>
+                  <li class="nav-item">
+                    <button class="btn btn-warning btn-lg btn-novedades" type="button" style="width: 120px;" onclick="location.href='recibos-app/login.html'">
+                      Login
+                  </button>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </nav>
+        
+    </header>
 
-        <form action="rxh.html" method="POST" class="form login" id="login-form">
-            <h1 style="color:#EE6C4D;text-align: center" class="center">Iniciar Sesión</h1>
+    <main>
+      <!--Secciín Principal HEROE-->
+        <section class="heroe-section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-8">
+                        <h1 class="display-3">Todo sobre Recibos por Honorarios<span class="dot">.</span></h1>
+                        <p class="heroe-parrafo">
+                          Si eres un trabajador independiente, debes emitir tus recibos por honorarios electrónicos cuando alguien pague por tus servicios profesionales..
+                        </p>
+                        <button class="btn btn-conoce">Conoce más</button>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-          <div class="form__field">
-            <label for="login__username"><svg class="icon">
-                <use xlink:href="#icon-user"></use>
-              </svg><span class="hidden">Username</span></label>
-            <input autocomplete="username" id="login__username" type="text" class="form__input" placeholder="Username" required>
+      <!--Secciín Episodios-->
+        <section class="background">
+          <div class="container" id="episodios">
+            <h2 class="titulo-episodio">Tutoriales Recibos por Honorarios</h2>
+            <div class="row spotify">
+              <div class="col-md-6">
+                <iframe class="iframe" width="560" height="315" src="https://www.youtube.com/embed/c0OL2Pd-8KE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+              </div>
+
+              <div class="col-md-6">
+                <iframe class="iframe" width="560" height="315" src="https://www.youtube.com/embed/gm9Xs9-p3U4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+              </div>
+
+            </div>
+
+            <div class="row spotify">
+              <div class="col-md-6">
+                <iframe class="iframe" width="560" height="315" src="https://www.youtube.com/embed/WgtwVJLAAbM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+              </div>
+
+              <div class="col-md-6">
+                <iframe class="iframe" width="560" height="315" src="https://www.youtube.com/embed/iWuioRmZlLk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>              </div>
+
+            </div>
           </div>
+        </section>
+
+         <!--Sección Nosotros-->
+         <section class="nosotros">
+            <div class="container">
+              <div class="row d-flex">
+                <div class="col-md-6">
+                  <img id="nosotros" src="Images/CelularRXH.png" class="img-fluid imagen-telefono" alt="">
+                </div>
+                <div class="col-md-6 col-xl-4" style="margin-top: -100px;">
+                  <h3>¿Como emitir un recibo por honorarios electrónico?</h3>
+                  <p class="text-nosotros">
+                    Uno debe de emitir sus respectivos recibos por honorarios electrónicos si es un trabajador independiente y presta servicios profesionales. Este debe de tener una Clave SOL y acceso a internet para ingresar a la plataforma de operaciones en línea de la SUNAT. Posteriormente, el usuario debe ingresar sus datos como su RUC e iniciar sesión. Al seleccionar la opción de Emisión de RHE, se completa la información de la entidad a la cual se le ha prestado el servicio y completar una ficha para luego emitirla.
+
+
+                  </p>
+                </div>
+              </div>
+            </div>
+         </section>
+
+         <!--SECCION GALERIA DE IMAGENES-->
+         <div class="container mt-5 mb-5" id="entrevistas">
+           <div class="row">
+             <div class="col-md-6">
+              <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
+                <ol class="carousel-indicators">
+                  <li data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active"></li>
+                  <li data-bs-target="#carouselExampleDark" data-bs-slide-to="1"></li>
+                  <li data-bs-target="#carouselExampleDark" data-bs-slide-to="2"></li>
+                </ol>
+                <div class="carousel-inner">
+                  <div class="carousel-item active" data-bs-interval="10000">
+                    <img src="Images/Imagen1.jpg" class="d-block w-100" alt="...">
+                    
+                  </div>
+                  <div class="carousel-item" data-bs-interval="2000">
+                    <img src="Images/imagen3.jpeg" class="d-block w-100" alt="...">
+                    
+                  </div>
+              
+                </div>
+                <a class="carousel-control-prev" href="#carouselExampleDark" role="button" data-bs-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleDark" role="button" data-bs-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Next</span>
+                </a>
+              </div>
+               
+              </div>
+
+            <div class="col-md-6">
+              <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                  <div class="carousel-item active" data-bs-interval="10000">
+                    <img src="Images/imagen3.jpeg" class="d-block w-100" alt="...">
+                  </div>
+                  <div class="carousel-item" data-bs-interval="2000">
+                    <img src="Images/imagen4.jpg" class="d-block w-100" alt="...">
+                  </div>
+                  
+                </div>
+                <a class="carousel-control-prev" href="#carouselExampleInterval" role="button" data-bs-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleInterval" role="button" data-bs-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Next</span>
+                </a>
+              </div>
+            </div>
+             
+           </div>
+         </div>
+
+         
+         
+       
+
+          <!--Seccion Beneficios-->
+         <section class="beneficios mb-5 mt-5" id="topicos">
+            <div class="container">
+              <h2 class="text-center mt-3 mb-5">Un RXH debe incluir</h2>
+              <div class="row text-center">
+                <div class="col-md-3">
+                  <img src="Images/experto.png" alt="" style="height: 120px;">
+                  <p class="text-beneficios">Nombre del Profesional</p>
+                </div>
+                <div class="col-md-3">
+                  <img src="Images/compras.png" alt="" style="height: 120px;">
+                  <p class="text-beneficios">Nombre del cliente</p>
+                </div>
+                <div class="col-md-3">
+                  <img src="Images/datos.png" alt="" style="height: 120px;">
+                  <p class="text-beneficios">Fecha de emisión</p>
+                </div>
+                <div class="col-md-3">
+                  <img src="Images/pila-de-dinero.png" alt="" style="height: 120px;">
+                  <p class="text-beneficios">El monto</p>
+                </div>
+
+              </div>
+            </div>
+         </section>
+
+         <section class="novedades">
+            <div class="container text-center">
+              <h2 class="text-novedades text-center">Prueba nuestra calculadora de Recibo por honorario</h2>
+              <button class="btn btn-warning btn-lg btn-novedades" type="button" onclick="location.href='recibos-app/login.html'">
+                  PROBAR
+              </button>
+            </div>
+         </section>
+    </main>
     
-          <div class="form__field">
-            <label for="login__password"><svg class="icon">
-                <use xlink:href="#icon-lock"></use>
-              </svg><span class="hidden">Password</span></label>
-            <input id="login__password" type="password" id="login__password" class="form__input" placeholder="Password" required>
+
+    <footer class="footer">
+        <div class="container">
+          <div class="row d-flex align-items-center">
+            <div class="col">
+              <p class="text-center">2021 Trabajo Final Finanzas e Ingeniería Económica</p>
+            </div>
+
+            <div class="col col-footer">
+              <ul class="d-flex">
+                <li><a href=""> Facebook</a></li>
+                <li><a href=""> Instagram</a></li>
+                <li><a href=""> TikTok</a></li>
+              </ul>
+            </div>
           </div>
-    
-          <div class="form__field">
-            <input type="submit" value="Iniciar Sesión">
-          </div>
-    
-        </form>
-    
-        <p class="text--center">¿Aún no estas registrado? <a href="registro.html">Registro</a> <svg class="icon">
-            <use xlink:href="#icon-arrow-right"></use>
-          </svg></p>
-    
-      </div>
-    
-      <svg xmlns="http://www.w3.org/2000/svg" class="icons">
-        <symbol id="icon-arrow-right" viewBox="0 0 1792 1792">
-          <path d="M1600 960q0 54-37 91l-651 651q-39 37-91 37-51 0-90-37l-75-75q-38-38-38-91t38-91l293-293H245q-52 0-84.5-37.5T128 1024V896q0-53 32.5-90.5T245 768h704L656 474q-38-36-38-90t38-90l75-75q38-38 90-38 53 0 91 38l651 651q37 35 37 90z" />
-        </symbol>
-        <symbol id="icon-lock" viewBox="0 0 1792 1792">
-          <path d="M640 768h512V576q0-106-75-181t-181-75-181 75-75 181v192zm832 96v576q0 40-28 68t-68 28H416q-40 0-68-28t-28-68V864q0-40 28-68t68-28h32V576q0-184 132-316t316-132 316 132 132 316v192h32q40 0 68 28t28 68z" />
-        </symbol>
-        <symbol id="icon-user" viewBox="0 0 1792 1792">
-          <path d="M1600 1405q0 120-73 189.5t-194 69.5H459q-121 0-194-69.5T192 1405q0-53 3.5-103.5t14-109T236 1084t43-97.5 62-81 85.5-53.5T538 832q9 0 42 21.5t74.5 48 108 48T896 971t133.5-21.5 108-48 74.5-48 42-21.5q61 0 111.5 20t85.5 53.5 62 81 43 97.5 26.5 108.5 14 109 3.5 103.5zm-320-893q0 159-112.5 271.5T896 896 624.5 783.5 512 512t112.5-271.5T896 128t271.5 112.5T1280 512z" />
-        </symbol>
-      </svg>
-    <!--LOGIN FIN-->
-
-
-
-
+        </div>
+    </footer>
+  
 
 
 
@@ -72,13 +245,6 @@
     <!-- Optional JavaScript; choose one of the two! -->
 
     <!-- Option 1: Bootstrap Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-
-    <!-- Option 2: Separate Popper and Bootstrap JS -->
-    <!--
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
-    -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
   </body>
-  
 </html>

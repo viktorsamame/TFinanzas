@@ -24,7 +24,7 @@ signupForm.addEventListener('submit', (e) =>{
         });
         
         console.log('sign')
-        window.location.replace("index.html");
+        window.location.replace("login.html");
         // clear the form
         signUpForm.reset();
     })

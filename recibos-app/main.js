@@ -1,3 +1,4 @@
+import { signOut} from 'https://www.gstatic.com/firebasejs/9.2.0/firebase-auth.js';
 import { collection, addDoc } from 'https://www.gstatic.com/firebasejs/9.2.0/firebase-firestore.js';
 import { auth, db} from './firebaseConfig.js'
 
@@ -31,7 +32,7 @@ const logout = document.querySelector('#logout')
 logout.addEventListener('click', e =>{
 
     signOut(auth).then(() => {
-        window.location.replace("index.html");
+        window.location.replace("login.html");
     })
 })
 
