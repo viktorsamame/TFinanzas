@@ -29,6 +29,7 @@ const setupDocs = data =>{
       const li = `
         <li class = "list-group-item list-group-item-action">
           <h5> (TCEA) Tasa de Coste Efectiva Anual: ${recibo.TCEA} </h5>
+          <p> (TEA) Tasa Efectiva Anual (sin costes): ${recibo.tasaEfectivaSinCostes} <p>
           <p> (ND) Número de dias transcurridos: ${recibo.ND} <p>
           <p> (TE) Tasa Efectiva: ${recibo.tasaEfectivaPeriodo} <p>
           <p> (d) Tasa Descontada: ${recibo.tasaDescontada} <p>

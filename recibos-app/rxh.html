@@ -31,6 +31,9 @@
             <li class="nav-item logged-in">
                 <a class="nav-link" href="#" id="logout">Logout</a>
             </li>
+            <li class="nav-item logged-in">
+              <a class="nav-link" href="#" id="tasaNominal">Cambiar a Tasa Nominal</a>
+            </li>
         </ul>
       </div>
     </div>
@@ -70,12 +73,6 @@
             </div>
 
             <h3 style="color:#EE6C4D;text-align: center" class="center">Costes / Gastos Iniciales</h3>
-
-            <div class="form__field">
-              <label for="rxh__motivo" style="color: white;"></label>
-              <input autocomplete="retencion" id="rxh__tretencion" type="text" name="retencion" class="form__input"
-                placeholder="Ingrese el Motivo">
-            </div>  
 
             <label for="rxh__motivo" style="color: rgb(52, 52, 235); background-color: transparent; font-size: large"><b>Valor Expresado en</b></label>
             <div class="form__field container">
@@ -139,8 +136,8 @@
             </div>
 
             <div class="form__field">
-              <label for="rxh__diasXanio" style="color: white;">P</label>
-              <input autocomplete="diasXanio" id="rxh__diasXanio" type="text" name="diasXanio" class="form__input" placeholder="Plazo de tasa" readonly>
+              <label for="rxh__plazo" style="color: white;">P</label>
+              <input autocomplete="plazo" id="rxh__plazo" type="text" name="plazo" class="form__input" placeholder="Plazo de tasa">
 
               <select id="cars" name="cars">
                 <option value="diario">Diario</option>
@@ -149,15 +146,14 @@
                 <option value="bimestral">Bimestral</option>
                 <option value="trimestral">Trimestral</option>
                 <option value="cuatrimestral">Cuatrimestral</option>
-                <option value="semetral">Semestral</option>
+                <option value="semestral">Semestral</option>
                 <option value="anual">Anual</option>
                 <option value="especial">Especial</option>
-
               </select>
             </div>
 
             <div class="form__field">
-              <label for="rxh__tasaEfectiva" style="color: white;">TE</label>
+              <label for="rxh__tasaEfectiva" id="label__tasaEfectiva" style="color: white;">TE</label>
 
               <input autocomplete="tasaEfectiva" id="rxh__tasaEfectiva" type="number" name="tasaEfectiva"
                 class="form__input" placeholder="Tasa Efectiva %">
@@ -170,12 +166,6 @@
             </div>
 
             <h3 style="color:#EE6C4D;text-align: center" class="center">Costes / Gastos Finales</h3>
-
-            <div class="form__field">
-              <label for="rxh__motivo" style="color: white;"></label>
-              <input autocomplete="retencion" id="rxh__tretencion" type="text" name="retencion" class="form__input"
-                placeholder="Ingrese el Motivo">
-            </div>
 
             <label for="rxh__motivo" style="color: rgb(52, 52, 235); background-color: transparent;font-size: large"><b>Valor Expresado en</b></label>
             <div class="form__field container">

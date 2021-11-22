@@ -7,6 +7,7 @@ const te = document.querySelector('#rxh__tasaEfectiva');
 const fd = document.querySelector('#rxh__fechaDescuento');
 const fp = document.querySelector('#rxh__fechaPago');
 const tr = document.querySelector('#rxh__totalRecibir');
+const plazoTasa = document.querySelector('#rxh__plazo');
 const retencion = document.querySelector('#rxh__retencion');
 const coste = document.querySelector('#rxh__valor');
 const btnCoste = document.querySelector('#agregarCoste');
@@ -14,7 +15,9 @@ const inputCostes = document.querySelector('#rxh__valorCostes');
 const costeFin = document.querySelector('#rxh__valorFin');
 const btnCosteFin = document.querySelector('#agregarCosteFin');
 const inputCostesFin = document.querySelector('#rxh__valorCostesFin');
+const eleccionPlazo = document.querySelector('#cars');
 const form = document.querySelector('#form1');
+var tasaNominal = false;
 let costes = [];
 let valorCoste = 0;
 let costesFin = [];
@@ -34,6 +37,53 @@ logout.addEventListener('click', e =>{
     signOut(auth).then(() => {
         window.location.replace("login.html");
     })
+})
+
+const tipoTasa = document.querySelector('#tasaNominal')
+
+tipoTasa.addEventListener('click', e =>{
+
+    if(tasaNominal){
+        document.getElementById("tasaNominal").innerHTML = "Cambiar a Tasa Nominal";
+        document.getElementById("rxh__tasaEfectiva").placeholder = "Tasa Efectiva %";
+        document.getElementById("label__tasaEfectiva").innerHTML = "TE";
+        tasaNominal = false;
+    } else {
+        document.getElementById("tasaNominal").innerHTML = "Cambiar a Tasa Efectiva";
+        document.getElementById("rxh__tasaEfectiva").placeholder = "Tasa Nominal %";
+        document.getElementById("label__tasaEfectiva").innerHTML = "TN";
+        tasaNominal = true;
+    }
+    console.log(plazoTasa.value)
+    console.log(eleccionPlazo.value)
+})
+
+eleccionPlazo.addEventListener('change', e =>{
+
+    if(eleccionPlazo.value == 'anual'){
+        document.getElementById("rxh__plazo").value = 360;
+    }
+    if(eleccionPlazo.value == 'semestral'){
+        document.getElementById("rxh__plazo").value = 180;
+    }
+    if(eleccionPlazo.value == 'cuatrimestral'){
+        document.getElementById("rxh__plazo").value = 120;
+    }
+    if(eleccionPlazo.value == 'trimestral'){
+        document.getElementById("rxh__plazo").value = 90;
+    }
+    if(eleccionPlazo.value == 'bimestral'){
+        document.getElementById("rxh__plazo").value = 60;
+    }
+    if(eleccionPlazo.value == 'mensual'){
+        document.getElementById("rxh__plazo").value = 30;
+    }
+    if(eleccionPlazo.value == 'quincenal'){
+        document.getElementById("rxh__plazo").value = 15;
+    }
+    if(eleccionPlazo.value == 'diario'){
+        document.getElementById("rxh__plazo").value = 1;
+    }
 })
 
 btnCoste.addEventListener('click', sumarCoste)
@@ -70,6 +120,7 @@ var diasTranscurridos;
 var valorNominal;
 var costesIniciales;
 var costesFinales;
+var tasaEfectivaSinCostes;
 
 form.addEventListener('submit', async (e)=> {
     
@@ -90,6 +141,7 @@ form.addEventListener('submit', async (e)=> {
                 costesIniciales: costesIniciales,
                 costesFinales: costesFinales,
                 retencion: Number(retencion.value),
+                tasaEfectivaSinCostes: Number(tasaEfectivaSinCostes),
                 userId: user.uid
             });
             window.location.replace("menu.html");
@@ -99,9 +151,32 @@ form.addEventListener('submit', async (e)=> {
       });
 })
 
+function convertirTN(TN, d){
+    
+    let tep = 0;
+    tep = ((Math.pow(1 + ((TN/100) / d), 360)) - 1)*100;
+    return tep
+}
+
+function modificarPlazo(TE, d){
+    let tep = 0;
+    tep = ((Math.pow((1+(TE/100)),(360/d)))-1)*100;
+    return tep
+}
 
 function capturarDatos() {
-    return primerCal(fp.value,parseFloat(te.value), fd.value);
+    let TE = 0;
+    if(tasaNominal){
+        TE = convertirTN(parseFloat(te.value), parseFloat(plazoTasa.value));
+        tasaEfectivaSinCostes = TE;
+        return primerCal(fp.value, TE , fd.value);
+    } else {
+        if(plazoTasa.value != 360){
+            TE = modificarPlazo(parseFloat(te.value), parseFloat(plazoTasa.value));
+        }
+        tasaEfectivaSinCostes = TE;
+        return primerCal(fp.value, TE, fd.value);
+    }
 }
 
 function primerCal(fp, te, fd) {
