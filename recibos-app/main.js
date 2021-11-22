@@ -15,6 +15,7 @@ const inputCostes = document.querySelector('#rxh__valorCostes');
 const costeFin = document.querySelector('#rxh__valorFin');
 const btnCosteFin = document.querySelector('#agregarCosteFin');
 const inputCostesFin = document.querySelector('#rxh__valorCostesFin');
+const diasAnio = document.querySelector('#diasXanio');
 const eleccionPlazo = document.querySelector('#cars');
 const form = document.querySelector('#form1');
 var tasaNominal = false;
@@ -55,13 +56,24 @@ tipoTasa.addEventListener('click', e =>{
         tasaNominal = true;
     }
     console.log(plazoTasa.value)
-    console.log(eleccionPlazo.value)
+    console.log(diasAnio.value)
+})
+
+diasAnio.addEventListener('change', e =>{
+
+    if(diasAnio.value == 360){
+        document.getElementById("rxh__diasXanio").value = 360;
+    }
+    if(diasAnio.value == 365){
+        document.getElementById("rxh__diasXanio").value = 365;
+    }
+
 })
 
 eleccionPlazo.addEventListener('change', e =>{
 
     if(eleccionPlazo.value == 'anual'){
-        document.getElementById("rxh__plazo").value = 360;
+        document.getElementById("rxh__plazo").value = diasAnio.value;
     }
     if(eleccionPlazo.value == 'semestral'){
         document.getElementById("rxh__plazo").value = 180;
@@ -154,13 +166,13 @@ form.addEventListener('submit', async (e)=> {
 function convertirTN(TN, d){
     
     let tep = 0;
-    tep = ((Math.pow(1 + ((TN/100) / d), 360)) - 1)*100;
+    tep = ((Math.pow(1 + ((TN/100) / d), diasAnio.value)) - 1)*100;
     return tep
 }
 
 function modificarPlazo(TE, d){
     let tep = 0;
-    tep = ((Math.pow((1+(TE/100)),(360/d)))-1)*100;
+    tep = ((Math.pow((1+(TE/100)),(diasAnio.value/d)))-1)*100;
     return tep
 }
 
@@ -171,7 +183,7 @@ function capturarDatos() {
         tasaEfectivaSinCostes = TE;
         return primerCal(fp.value, TE , fd.value);
     } else {
-        if(plazoTasa.value != 360){
+        if(plazoTasa.value != diasAnio.value){
             TE = modificarPlazo(parseFloat(te.value), parseFloat(plazoTasa.value));
         }
         tasaEfectivaSinCostes = TE;
@@ -185,7 +197,7 @@ function primerCal(fp, te, fd) {
     let resta = fechafd.getTime() - fechafp.getTime();
     diasTranscurridos = (Math.round(resta / (1000 * 60 * 60 * 24)))*-1;
     let tep = 0;
-    tep = ((Math.pow(1 + (te / 100), diasTranscurridos / 360)) - 1) * 100;
+    tep = ((Math.pow(1 + (te / 100), diasTranscurridos / diasAnio.value)) - 1) * 100;
     tasaEfectivaPeriodo = tep.toFixed(9);
     console.log(`Resultado 1: ${tep}`);
     console.log(`Tasa descontada: ${tasaEfectivaPeriodo}`);
@@ -231,7 +243,7 @@ function septimoPaso(valorEntregado, valorRecibido) {
     let restafechaFin = fechafdFin.getTime() - fechafpFin.getTime();
     let diasReFin = Math.round(restafechaFin / (1000 * 60 * 60 * 24));
     let tcea = 0;
-    let arriba = ((360 / diasReFin))*-1;
+    let arriba = ((diasAnio.value / diasReFin))*-1;
     let abajo = valorEntregado / valorRecibido;
     let tceaAlEjercicio = 0; 
     tcea = ((Math.pow(abajo, arriba)) - 1) * 100;
